@@ -29,8 +29,33 @@ function postSlug(id: string) {
     <p class="mt-3 text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">{t('home.subtitle')}</p>
   </section>
 
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-1">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+        {t('home.latestPosts')}
+      </h2>
+      <a href={`/${lang}/blog/`} class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">
+        {t('home.viewAllPosts')} →
+      </a>
+    </div>
+    {latestPosts.length === 0 ? (
+      <p class="text-slate-500 dark:text-slate-400 mt-6">No posts yet. Stay tuned!</p>
+    ) : (
+      latestPosts.map(post => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          tags={post.data.tags}
+          href={`/${lang}/blog/${postSlug(post.id)}/`}
+          lang={lang}
+        />
+      ))
+    )}
+  </section>
+
   {featuredProjects.length > 0 && (
-    <section class="mb-16">
+    <section>
       <div class="flex items-center justify-between mb-5">
         <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
           {t('home.featuredProjects')}
@@ -53,25 +78,4 @@ function postSlug(id: string) {
       </div>
     </section>
   )}
-
-  <section>
-    <div class="flex items-center justify-between mb-1">
-      <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
-        {t('home.latestPosts')}
-      </h2>
-      <a href={`/${lang}/blog/`} class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">
-        {t('home.viewAllPosts')} →
-      </a>
-    </div>
-    {latestPosts.map(post => (
-      <PostCard
-        title={post.data.title}
-        description={post.data.description}
-        date={post.data.date}
-        tags={post.data.tags}
-        href={`/${lang}/blog/${postSlug(post.id)}/`}
-        lang={lang}
-      />
-    ))}
-  </section>
 </Base>

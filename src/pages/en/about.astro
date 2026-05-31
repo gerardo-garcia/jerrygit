@@ -9,9 +9,16 @@ const bioParagraphs = t('about.bio').split('\n\n');
 ---
 
 <Base title={t('about.title')}>
-  <header class="mb-10">
-    <h1 class="text-3xl font-bold text-slate-900 dark:text-white">Gerardo García</h1>
-    <p class="mt-1 text-slate-500 dark:text-slate-400 font-mono text-sm">also known as Jerry García · jerrygit</p>
+  <header class="mb-10 flex items-center gap-6">
+    <img
+      src="/photo.jpg"
+      alt="Gerardo García"
+      class="w-24 h-24 rounded-full object-cover shrink-0 border-2 border-slate-200 dark:border-slate-700"
+    />
+    <div>
+      <h1 class="text-3xl font-bold text-slate-900 dark:text-white">Gerardo García</h1>
+      <p class="mt-1 text-slate-500 dark:text-slate-400 font-mono text-sm">also known as Jerry García · jerrygit</p>
+    </div>
   </header>
 
   <section class="mb-10 space-y-4">
