@@ -6,6 +6,7 @@ import { useTranslations } from '../../../i18n/utils';
 
 const lang = 'es';
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
 
 const allPosts = await getCollection('blog', ({ id }) => id.startsWith('es/'));
 const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -31,7 +32,7 @@ function postSlug(id: string) {
           description={post.data.description}
           date={post.data.date}
           tags={post.data.tags}
-          href={`/${lang}/blog/${postSlug(post.id)}/`}
+          href={`${base}${lang}/blog/${postSlug(post.id)}/`}
           lang={lang}
         />
       ))}

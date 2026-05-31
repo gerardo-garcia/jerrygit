@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://jerrygit.com',
+  base: '/jerrygit',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

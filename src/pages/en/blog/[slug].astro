@@ -16,10 +16,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const lang = 'en';
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title={post.data.title} description={post.data.description}>
-  <a href={`/${lang}/blog/`} class="text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 block">
+  <a href={`${base}${lang}/blog/`} class="text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 block">
     {t('back.blog')}
   </a>
 

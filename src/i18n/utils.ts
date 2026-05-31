@@ -2,8 +2,14 @@ import { ui, defaultLang, type Lang, type TranslationKey } from './ui';
 
 export type { Lang };
 
+function stripBase(pathname: string): string {
+  const base = import.meta.env.BASE_URL;
+  const basePath = base === '/' ? '' : (base.endsWith('/') ? base.slice(0, -1) : base);
+  return basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
+}
+
 export function getLangFromUrl(url: URL): Lang {
-  const [, lang] = url.pathname.split('/');
+  const [, lang] = stripBase(url.pathname).split('/');
   if (lang in ui) return lang as Lang;
   return defaultLang;
 }
@@ -15,13 +21,15 @@ export function useTranslations(lang: Lang) {
 }
 
 export function getAlternateUrl(url: URL, targetLang: Lang): string {
-  const parts = url.pathname.split('/');
+  const base = import.meta.env.BASE_URL;
+  const basePath = base === '/' ? '' : (base.endsWith('/') ? base.slice(0, -1) : base);
+  const parts = stripBase(url.pathname).split('/');
   if (parts[1] in ui) {
     parts[1] = targetLang;
   } else {
     parts.splice(1, 0, targetLang);
   }
-  return parts.join('/') || `/${targetLang}/`;
+  return basePath + (parts.join('/') || `/${targetLang}/`);
 }
 
 export function formatDate(date: Date, lang: Lang): string {
