@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const allProjects = await getCollection('projects', ({ id }) => id.startsWith('en/'));
+const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title={t('projects.title')} description={t('projects.subtitle')}>
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white">{t('projects.title')}</h1>
+    <p class="mt-2 text-slate-600 dark:text-slate-400">{t('projects.subtitle')}</p>
+  </header>
+
+  <div class="grid sm:grid-cols-2 gap-5">
+    {sortedProjects.map(project => (
+      <ProjectCard
+        title={project.data.title}
+        description={project.data.description}
+        status={project.data.status}
+        tags={project.data.tags}
+        links={project.data.links}
+        statusLabel={t(`projects.status.${project.data.status}` as any)}
+      />
+    ))}
+  </div>
+</Base>

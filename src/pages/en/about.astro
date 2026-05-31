@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const bioParagraphs = t('about.bio').split('\n\n');
+---
+
+<Base title={t('about.title')}>
+  <header class="mb-10">
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white">Gerardo García</h1>
+    <p class="mt-1 text-slate-500 dark:text-slate-400 font-mono text-sm">also known as Jerry García · jerrygit</p>
+  </header>
+
+  <section class="mb-10 space-y-4">
+    {bioParagraphs.map(p => (
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">{p}</p>
+    ))}
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">
+      {t('about.activeProjects')}
+    </h2>
+    <ul class="space-y-3">
+      <li class="flex flex-col gap-1">
+        <span class="font-semibold text-slate-900 dark:text-white">Open Source MANO (OSM)</span>
+        <span class="text-sm text-slate-600 dark:text-slate-400">
+          ETSI open-source NFV Management and Orchestration platform. Role: TSC Chair.
+        </span>
+        <div class="flex gap-4 text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+          <a href="https://osm.etsi.org/gitlab" target="_blank" rel="noopener noreferrer" class="hover:underline">Code ↗</a>
+          <a href="https://osm.etsi.org/docs/user-guide" target="_blank" rel="noopener noreferrer" class="hover:underline">Docs ↗</a>
+          <a href="https://osm.etsi.org/about/osm-leaders" target="_blank" rel="noopener noreferrer" class="hover:underline">OSM Leaders ↗</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">
+      {t('about.findMe')}
+    </h2>
+    <ul class="space-y-2 text-sm">
+      <li>
+        <a href="https://www.linkedin.com/in/gerardo-garc%C3%ADa-de-blas-a185751a/" target="_blank" rel="noopener noreferrer"
+           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+          LinkedIn ↗
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/gerardo-garcia" target="_blank" rel="noopener noreferrer"
+           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+          GitHub ↗
+        </a>
+      </li>
+      <li>
+        <a href="https://gitlab.com/gerardo-garcia" target="_blank" rel="noopener noreferrer"
+           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+          GitLab ↗
+        </a>
+      </li>
+    </ul>
+  </section>
+</Base>
