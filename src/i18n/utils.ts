@@ -3,8 +3,8 @@ import { ui, defaultLang, type Lang, type TranslationKey } from './ui';
 export type { Lang };
 
 function stripBase(pathname: string): string {
-  const base = import.meta.env.BASE_URL;
-  const basePath = base === '/' ? '' : (base.endsWith('/') ? base.slice(0, -1) : base);
+  const base = (import.meta.env.BASE_URL + '/').replace(/\/+$/, '/');
+  const basePath = base === '/' ? '' : base.slice(0, -1);
   return basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
 }
 
@@ -21,8 +21,8 @@ export function useTranslations(lang: Lang) {
 }
 
 export function getAlternateUrl(url: URL, targetLang: Lang): string {
-  const base = import.meta.env.BASE_URL;
-  const basePath = base === '/' ? '' : (base.endsWith('/') ? base.slice(0, -1) : base);
+  const base = (import.meta.env.BASE_URL + '/').replace(/\/+$/, '/');
+  const basePath = base === '/' ? '' : base.slice(0, -1);
   const parts = stripBase(url.pathname).split('/');
   if (parts[1] in ui) {
     parts[1] = targetLang;
