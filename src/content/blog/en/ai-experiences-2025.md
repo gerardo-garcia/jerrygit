@@ -38,7 +38,7 @@ In the past month I've had over 25 working sessions with Claude across more than
 
 ### AI applied to infrastructure management
 
-- **Lab management tool**: cluster management, AI endpoints, and infrastructure monitoring. It's now running in production in the lab.
+- **Lab environment management tool**: a Python tool for managing private cloud environments, Kubernetes clusters, OSM endpoints, and AI endpoints, backed by a private repository where credentials are encrypted with AGE and SOPS. It's now running in production in the lab: any team member can use it to deploy VMs, create clusters, run OSM tests, or query the AI endpoints.
 - **AI-powered cluster diagnostics demo**: log analysis and solution proposals using an LLM. Here the help exceeded my own expectations: when Claude detected that the Slack MCP Server couldn't send messages with buttons, it reimplemented its own MCP server that could — so the cluster fix could be applied directly from Slack via a button.
 
 ### Personal projects

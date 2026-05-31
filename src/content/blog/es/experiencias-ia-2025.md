@@ -38,7 +38,7 @@ En el último mes he tenido más de 25 sesiones de trabajo con Claude en más de
 
 ### IA aplicada a gestión de infraestructura
 
-- **Herramienta de gestión del laboratorio**: gestión de clusters de Kubernetes, endpoints de IA y monitorización de la infraestructura. Hoy se usa en producción en el laboratorio.
+- **Herramienta de gestión de entornos de laboratorio**: herramienta en Python para gestionar entornos de cloud privada, clusters de Kubernetes, endpoints de OSM y endpoints de IA, apoyada en un repositorio privado donde las credenciales están cifradas con AGE y SOPS. Hoy se usa en producción en el laboratorio: cualquier miembro del equipo tiene las credenciales y puede actuar sobre esos entornos para desplegar VMs, crear clusters, lanzar pruebas de OSM, o hacer queries contra los endpoints de IA.
 - **Demo de diagnóstico de clusters con IA**: análisis de logs y propuesta de soluciones mediante un LLM. Aquí la ayuda superó mis propias expectativas: cuando Claude detectó que el MCP Server de Slack no podía enviar mensajes con botones, reimplementó un MCP server propio que sí lo permitía — para que el fix al cluster se pudiera aplicar directamente desde Slack con un botón.
 
 ### Proyectos personales
