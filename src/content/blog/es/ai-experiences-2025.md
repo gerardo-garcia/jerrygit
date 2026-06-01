@@ -47,7 +47,7 @@ En el último mes he tenido más de 25 sesiones de trabajo con Claude en más de
 - **Presentación para la ONG Rescate**: PowerPoint sobre el uso de la IA en la búsqueda de empleo, generada a partir de un guión elaborado por mí con diversas fuentes, siendo la más relevante las notas de mi antiguo jefe y buen amigo [Francisco Javier](https://www.linkedin.com/in/fjramons/).
 - **Monitorización de Claude en WSL**: adaptación de [claude-perfmon](https://github.com/joobid/claude-perfmon) (originalmente para Mac) para funcionar en WSL, con contribución de los cambios al proyecto original mediante Pull Request en GitHub.
 - **Oracle Cloud Always Free VM**: script de reintento para sortear el error sistemático *InternalError – Out of capacity* en la región EU-MADRID-1-AD-1.
-- **jerrygit.com**: esta web.
+- **jerrygit.com**: [esta web](https://jerrygit.com).
 
 ## Conclusión
 
