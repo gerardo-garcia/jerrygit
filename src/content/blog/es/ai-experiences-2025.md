@@ -1,5 +1,5 @@
 ---
-title: "Un año con IA: de ChatGPT a Claude Code"
+title: "Mi último año con la IA: de ChatGPT a Claude Code"
 description: "Mi recorrido por las herramientas de IA: de los chatbots a los asistentes de codificación, los LLMs locales y la revolución que supuso Claude Code."
 date: 2026-05-31
 tags: ["IA", "Claude", "LLM", "herramientas", "Open Source"]

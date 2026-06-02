@@ -1,5 +1,5 @@
 ---
-title: "A Year with AI: From ChatGPT to Claude Code"
+title: "My Past Year with AI: From ChatGPT to Claude Code"
 description: "My journey through AI tools this year: from chatbots to coding assistants, local LLMs, and the revolution that was Claude Code."
 date: 2026-05-31
 tags: ["AI", "Claude", "LLM", "tools", "Open Source"]
