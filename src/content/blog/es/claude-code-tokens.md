@@ -15,9 +15,11 @@ No se puede optimizar lo que no se mide. Monitorizar el consumo con regularidad 
 - **`/context`** — visualiza el estado de tu ventana de contexto como una rejilla, con sugerencias cuando algo (ficheros de memoria, salidas de herramientas) ocupa demasiado.
 - **`/cost`** — muestra los tokens y el coste estimado de la sesión actual.
 - **[`ccusage`](https://github.com/ryoppippi/ccusage)** — una herramienta de la comunidad que lee los logs locales de Claude Code y desglosa el uso por día, mes o sesión. `npx ccusage@latest` para un resumen, y `npx ccusage blocks --live` para un monitor en tiempo real de la ventana de 5 horas.
-- **Mi propia herramienta, [claude-perfmon](https://github.com/gerardo-garcia/claude-perfmon)** — la adapté hace tiempo para monitorizar CPU y RAM de Claude, y para este artículo le he añadido un **panel de tokens**: lee los mismos logs de transcripción (`~/.claude/projects/**/*.jsonl`), agrega los tokens del día y del bloque de 5 horas, estima el coste por modelo y dibuja la serie temporal. Sin dependencias externas, solo Python.
+- **Mi propia herramienta, [claude-perfmon](https://github.com/gerardo-garcia/claude-perfmon)** — un *fork* del [proyecto original de joobid](https://github.com/joobid/claude-perfmon) (pensado para macOS) que adapté para que funcionara en WSL. Monitorizaba la CPU y la RAM de Claude, y para este artículo le he añadido un **panel de tokens**: lee los mismos logs de transcripción (`~/.claude/projects/**/*.jsonl`), agrega los tokens del día y del bloque de 5 horas, estima el coste por modelo y dibuja la serie temporal. Sin dependencias externas, solo Python.
 
 Con cualquiera de ellas tendrás una imagen clara de a dónde se van tus tokens, que es el punto de partida para todo lo demás.
+
+![Panel de consumo de tokens en claude-perfmon, junto a los de CPU y RAM](/claude-perfmon-tokens.png)
 
 ## Da contexto suficiente en tus peticiones
 
