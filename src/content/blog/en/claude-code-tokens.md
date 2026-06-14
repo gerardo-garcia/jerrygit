@@ -1,6 +1,6 @@
 ---
 title: "Managing Token Consumption in Claude Code: Practical Tips"
-description: "How to monitor and cut token usage in Claude Code: measure before you optimise, give good context, compact, use memory, plan mode, custom tools, and a couple of high-impact habits."
+description: "How to monitor and cut token usage in Claude Code: measure before you optimise, give good context, avoid large attachments, compact, use memory, pick the right model, plan mode, custom tools, and a few high-impact habits."
 date: 2026-06-11
 tags: ["Claude Code", "AI", "tokens", "productivity", "best practices"]
 featured: true
@@ -21,9 +21,21 @@ Any of these gives you a clear picture of where your tokens are going, which is 
 
 ![Token consumption panel in claude-perfmon, next to the CPU and RAM panels](/claude-perfmon-tokens.png)
 
+## Use the right model for the task
+
+Not every task needs the most capable — and most expensive — model. For simple work — drafting a short message, answering a quick question, summarising a paragraph — a lighter model handles it at a fraction of the cost. Save heavier models for reasoning-intensive tasks where it actually makes a difference. In Claude Code you can switch models at any time with `/model`.
+
+## Use plan mode for large tasks
+
+Plan mode doesn't reduce tokens by itself —planning also consumes them— but its saving is **indirect and very real**: validating the approach before touching code avoids the most expensive scenario, which is implementing in the wrong direction and having to redo it. On large tasks, a few planning tokens save many rewriting ones.
+
 ## Give enough context in your prompts
 
 It sounds counterintuitive, but **giving more context usually consumes fewer tokens** in the long run. A vague prompt triggers back-and-forth: Claude asks for clarification, explores more than needed, or heads in the wrong direction — and every one of those turns costs tokens. If you state the relevant file, the expected outcome, and the constraints up front, you reach the solution in fewer turns.
+
+## Avoid attaching large files
+
+Attaching files looks like a convenient shortcut, but the cost adds up quickly. PDFs are the worst case: Claude reads and encodes the entire document — potentially thousands of tokens in one shot — before any real work starts. If you need Claude to work with a document, extract the relevant sections as text, or point it to a specific file path that it can read on demand. Reserve attachments for cases where the whole file is genuinely needed.
 
 ## Leverage summarisation and compaction
 
@@ -35,10 +47,6 @@ The `CLAUDE.md` file acts as persistent project memory: it saves you from re-exp
 
 With one important caveat, though: `CLAUDE.md` **is loaded every session and takes up context**. It's a trade-off — store what genuinely saves repetition and keep it concise; a giant memory file works against you.
 
-## Use plan mode for large tasks
-
-Plan mode doesn't reduce tokens by itself —planning also consumes them— but its saving is **indirect and very real**: validating the approach before touching code avoids the most expensive scenario, which is implementing in the wrong direction and having to redo it. On large tasks, a few planning tokens save many rewriting ones.
-
 ## Build tools for specific tasks
 
 For recurring or deterministic actions, your own tool (a script, an MCP server) is almost always cheaper than walking Claude through it step by step. You offload the mechanical work to code that runs once, instead of spending tokens describing and reasoning about every action. claude-perfmon is exactly that: rather than asking Claude to compute usage, a tool does it and Claude just interprets the result.
@@ -47,13 +55,14 @@ For recurring or deterministic actions, your own tool (a script, an MCP server) 
 
 If you find yourself repeating the same instructions —the same review flow, the same commit format, the same kind of analysis— turn it into a **custom command** or a **skill**. You encapsulate the instructions once and invoke them with a single line, instead of rewriting them (and resending them as tokens) every time. Skills also load on demand, so they don't weigh anything until you use them.
 
-## Two extra high-impact habits
+## Three extra high-impact habits
 
-Beyond the list above, two habits make a disproportionate difference:
+Beyond the list above, three habits make a disproportionate difference:
 
 - **`/clear` between unrelated tasks.** When you switch topics, the previous history no longer helps yet still gets resent on every turn. Clearing the context when you start something new is probably the simplest, biggest saving there is.
 - **Take advantage of _prompt caching_.** Claude Code automatically caches the start of the context (things like `CLAUDE.md` and files you've already read). Keeping that start stable maximises cache hits —which are billed far cheaper than fresh tokens—; conversely, changing something early in the context invalidates the cache and makes the turn more expensive.
+- **Ask for terse responses.** Output tokens are billed at a higher rate than input tokens, so trimming Claude's answers is worth it. You can instruct Claude — in `CLAUDE.md` or directly in a prompt — to skip preambles, skip closing summaries, and get straight to the point. An extreme but effective variant: ask it to respond in *caveman style* — short sentences, no filler. You get the answer without the packaging.
 
 ## In short
 
-Managing tokens isn't about penny-pinching — it's about **working with intent**: measure to know where you stand, give good context, compact and clear when it's time, remember what truly matters, and automate the repetitive. They're small habits, but together they cut consumption and, as a bonus, make Claude work better.
+Managing tokens isn't about penny-pinching — it's about **working with intent**: measure to know where you stand, pick the right model, give good context, avoid bulk attachments, compact and clear when it's time, remember what truly matters, and automate the repetitive. They're small habits, but together they cut consumption and, as a bonus, make Claude work better.
