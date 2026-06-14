@@ -19,7 +19,7 @@ No se puede optimizar lo que no se mide. Monitorizar el consumo con regularidad 
 
 Con cualquiera de ellas tendrás una imagen clara de a dónde se van tus tokens, que es el punto de partida para todo lo demás.
 
-![Panel de consumo de tokens en claude-perfmon, junto a los de CPU y RAM](/claude-perfmon-tokens.png)
+![Panel de consumo de tokens en claude-perfmon, junto a los de CPU y RAM](../images/claude-perfmon-tokens.png)
 
 ## Usa el modelo adecuado para cada tarea
 

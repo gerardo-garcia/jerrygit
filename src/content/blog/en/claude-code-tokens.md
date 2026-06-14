@@ -19,7 +19,7 @@ You can't optimise what you don't measure. Monitoring consumption regularly lets
 
 Any of these gives you a clear picture of where your tokens are going, which is the starting point for everything else.
 
-![Token consumption panel in claude-perfmon, next to the CPU and RAM panels](/claude-perfmon-tokens.png)
+![Token consumption panel in claude-perfmon, next to the CPU and RAM panels](../images/claude-perfmon-tokens.png)
 
 ## Use the right model for the task
 
