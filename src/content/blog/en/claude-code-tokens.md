@@ -49,7 +49,7 @@ With one important caveat, though: `CLAUDE.md` **is loaded every session and tak
 
 ## Build tools for specific tasks
 
-For recurring or deterministic actions, your own tool (a script, an MCP server) is almost always cheaper than walking Claude through it step by step. You offload the mechanical work to code that runs once, instead of spending tokens describing and reasoning about every action. claude-perfmon is exactly that: rather than asking Claude to compute usage, a tool does it and Claude just interprets the result.
+For recurring or deterministic actions, your own tool (a script, an MCP server) is almost always cheaper than walking Claude through it step by step. You offload the mechanical work to code that runs once, instead of spending tokens describing and reasoning about every action. A concrete example: I built a Python tool to manage access and run commands against all our lab environments — private and public clouds, Kubernetes clusters, OSM endpoints, and AI endpoints. Once the tool existed, Claude could lean on it to deploy VMs, create clusters, run OSM tests, or query AI endpoints directly, without having to reason about authentication, connectivity, or environment-specific quirks on every request.
 
 ## Create custom skills and commands
 

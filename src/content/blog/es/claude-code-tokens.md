@@ -49,7 +49,7 @@ Eso sí, con un matiz importante: `CLAUDE.md` **se carga en cada sesión y ocupa
 
 ## Crea herramientas para tareas específicas
 
-Para acciones recurrentes o deterministas, una herramienta propia (un script, un servidor MCP) casi siempre es más barata que pedírselo a Claude paso a paso. Descargas el trabajo mecánico en código que se ejecuta una vez, en lugar de gastar tokens describiendo y razonando cada acción. claude-perfmon es justo eso: en vez de pedirle a Claude que calcule el consumo, una herramienta lo hace y Claude solo interpreta el resultado.
+Para acciones recurrentes o deterministas, una herramienta propia (un script, un servidor MCP) casi siempre es más barata que pedírselo a Claude paso a paso. Descargas el trabajo mecánico en código que se ejecuta una vez, en lugar de gastar tokens describiendo y razonando cada acción. Un ejemplo concreto: desarrollé una herramienta en Python para gestionar el acceso y la ejecución de comandos contra todos los entornos del laboratorio — clouds privada y pública, clusters de Kubernetes, endpoints de OSM y endpoints de IA. Una vez disponible, la IA puede apoyarse en ella para desplegar VMs, crear clusters, lanzar pruebas de OSM o hacer queries contra los endpoints de IA directamente, sin necesidad de razonar sobre autenticación, conectividad ni particularidades de cada entorno en cada petición.
 
 ## Crea skills y comandos personalizados
 
