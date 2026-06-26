@@ -66,3 +66,13 @@ Más allá de la lista anterior, hay tres costumbres que marcan una diferencia d
 ## En resumen
 
 Gestionar tokens no va de escatimar, sino de **trabajar con intención**: mide para saber dónde estás, elige el modelo adecuado, da buen contexto, evita adjuntos voluminosos, compacta y limpia cuando toca, recuerda lo que de verdad importa y automatiza lo repetitivo. Son hábitos pequeños, pero juntos reducen el consumo y, de paso, hacen que Claude trabaje mejor.
+
+## Actualización (26 de junio de 2026)
+
+Después de publicar este artículo, el equipo de VS Code publicó [un análisis sobre la eficiencia de tokens en GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot) que mira el problema desde el lado de la plataforma, con métricas concretas. Es muy complementario a lo de aquí y matiza —o amplía— algunos puntos. Estos son los más relevantes:
+
+- **La caché es más que "el inicio del contexto".** Yo lo simplifiqué arriba, pero Anthropic coloca **cuatro *cache breakpoints*** —fin del system prompt, fin de las definiciones de herramientas y dos anclas móviles sobre el historial—, de modo que el historial también se cachea de forma incremental. Así llegan a **~94% de aciertos** en cargas agénticas. Refuerza el consejo de mantener estable el contexto y usar `/clear`.
+- **El tiempo entre turnos también invalida la caché.** Por defecto la caché expira en pocos minutos; con retención extendida (24h) los aciertos suben muchísimo en huecos largos (hasta **+919%** en gaps de 40–60 min). Conclusión práctica: trabajar en ráfagas seguidas aprovecha mucho mejor la caché que sesiones muy espaciadas.
+- **Cada definición de herramienta cuesta tokens en cada petición.** Nombre, descripción y JSON schema se reenvían en todos los turnos, se usen o no. Por eso conviene no conectar servidores MCP a lo loco: amortizan trabajo, pero infla el contexto. La solución que proponen —cargar las definiciones bajo demanda (*Tool Search*), con reducciones del **8–18%** de tokens— es justo la filosofía de las skills que mencioné: que solo ocupen contexto cuando de verdad se usan.
+- **Los aciertos de caché son hasta ~10× más baratos** que los tokens nuevos. Un dato concreto para el consejo de *prompt caching* de más arriba.
+- **No es solo coste: también latencia y contexto restante.** La idea con la que arrancan es que la eficiencia de tokens afecta a tres cosas —créditos, **latencia** y el **contexto que le queda al agente para terminar la tarea**—. Un ángulo que ayuda a entender por qué estos hábitos importan más allá de la factura. De cara al futuro apuntan a **subagentes especializados con el modelo más pequeño viable**, que es la extensión natural de "usa el modelo adecuado para cada tarea".

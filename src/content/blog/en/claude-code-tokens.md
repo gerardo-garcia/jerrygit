@@ -66,3 +66,13 @@ Beyond the list above, three habits make a disproportionate difference:
 ## In short
 
 Managing tokens isn't about penny-pinching — it's about **working with intent**: measure to know where you stand, pick the right model, give good context, avoid bulk attachments, compact and clear when it's time, remember what truly matters, and automate the repetitive. They're small habits, but together they cut consumption and, as a bonus, make Claude work better.
+
+## Update (26 June 2026)
+
+After publishing this article, the VS Code team put out [an analysis of token efficiency in GitHub Copilot](https://code.visualstudio.com/blogs/2026/06/17/improving-token-efficiency-in-github-copilot) that looks at the problem from the platform side, with concrete metrics. It's very complementary to what's here and nuances —or extends— a few of the points above. These are the most relevant ones:
+
+- **Caching is more than "the start of the context".** I simplified it above, but Anthropic places **four *cache breakpoints*** —end of the system prompt, end of the tool definitions, and two rolling anchors over the message history— so the history gets cached incrementally too. That's how they reach **~94% cache hits** on agentic workloads. It reinforces the advice to keep the context stable and to use `/clear`.
+- **The gap between turns also invalidates the cache.** By default the cache expires within a few minutes; with extended retention (24h), hits rise dramatically over long gaps (up to **+919%** on 40–60 min gaps). Practical takeaway: working in back-to-back bursts uses the cache far better than widely spaced sessions.
+- **Every tool definition costs tokens on every request.** Name, description, and JSON schema get resent each turn, used or not. So it pays not to wire up MCP servers indiscriminately: they amortise work, but they inflate the context. Their fix —loading definitions on demand (*Tool Search*), with **8–18%** token reductions— is exactly the skills philosophy I mentioned: they only take up context when you actually use them.
+- **Cache hits are up to ~10× cheaper** than fresh tokens. A concrete figure for the *prompt caching* tip further up.
+- **It's not just cost: it's also latency and remaining context.** The idea they start from is that token efficiency affects three things —credits, **latency**, and the **context the agent has left to finish the task**—. An angle that helps explain why these habits matter beyond the bill. Looking ahead, they point to **specialised subagents using the smallest viable model**, which is the natural extension of "use the right model for the task".
