@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import photo from '../../assets/photo.jpg';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -11,9 +13,11 @@ const bioParagraphs = t('about.bio').split('\n\n');
 <Base title={t('about.title')}>
   <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8">
   <header class="mb-10 flex items-center gap-6">
-    <img
-      src="/photo.jpg"
+    <Image
+      src={photo}
       alt="Gerardo García"
+      width={256}
+      height={384}
       class="w-24 h-24 rounded-full object-cover object-top shrink-0 border-2 border-slate-200 dark:border-slate-700"
     />
     <div>

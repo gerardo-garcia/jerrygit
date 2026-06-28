@@ -2,6 +2,22 @@
 @plugin "@tailwindcss/typography";
 
 @layer base {
-  body { background-color: #eef2ff; }
-  .dark body { background-color: #0f0e1a; }
+  body {
+    background-color: #eef2ff;
+    background-image:
+      radial-gradient(48rem 48rem at 15% -10%, rgba(99, 102, 241, 0.14), transparent 60%),
+      radial-gradient(42rem 42rem at 100% 0%, rgba(6, 182, 212, 0.12), transparent 55%),
+      radial-gradient(50rem 50rem at 80% 110%, rgba(139, 92, 246, 0.10), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #0f0e1a;
+      background-image:
+        radial-gradient(48rem 48rem at 15% -10%, rgba(99, 102, 241, 0.22), transparent 60%),
+        radial-gradient(42rem 42rem at 100% 0%, rgba(6, 182, 212, 0.14), transparent 55%),
+        radial-gradient(50rem 50rem at 80% 110%, rgba(139, 92, 246, 0.18), transparent 60%);
+    }
+  }
 }
