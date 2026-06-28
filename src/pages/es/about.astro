@@ -11,14 +11,14 @@ const bioParagraphs = t('about.bio').split('\n\n');
 ---
 
 <Base title={t('about.title')}>
-  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8">
+  <div class="term-card p-8">
   <header class="mb-10 flex items-center gap-6">
     <Image
       src={photo}
       alt="Gerardo García"
       width={256}
       height={384}
-      class="w-24 h-24 rounded-full object-cover object-top shrink-0 border-2 border-slate-200 dark:border-slate-700"
+      class="w-24 h-24 rounded-full object-cover object-top shrink-0 border-2 border-emerald-700"
     />
     <div>
       <h1 class="text-3xl font-bold text-slate-900 dark:text-white">Gerardo García</h1>
@@ -33,7 +33,7 @@ const bioParagraphs = t('about.bio').split('\n\n');
   </section>
 
   <section class="mb-10">
-    <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">
+    <h2 class="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400/80 mb-4">
       {t('about.activeProjects')}
     </h2>
     <ul class="space-y-3">
@@ -42,7 +42,7 @@ const bioParagraphs = t('about.bio').split('\n\n');
         <span class="text-sm text-slate-600 dark:text-slate-400">
           Plataforma de gestión y orquestación de NFV de código abierto de ETSI. Rol: Presidente del TSC.
         </span>
-        <div class="flex gap-4 text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+        <div class="flex gap-4 font-mono text-xs text-emerald-400 font-medium">
           <a href="https://osm.etsi.org/gitlab" target="_blank" rel="noopener noreferrer" class="hover:underline">Código ↗</a>
           <a href="https://osm.etsi.org/docs/user-guide" target="_blank" rel="noopener noreferrer" class="hover:underline">Docs ↗</a>
           <a href="https://osm.etsi.org/about/osm-leaders" target="_blank" rel="noopener noreferrer" class="hover:underline">Líderes OSM ↗</a>
@@ -52,31 +52,31 @@ const bioParagraphs = t('about.bio').split('\n\n');
   </section>
 
   <section>
-    <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">
+    <h2 class="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400/80 mb-4">
       {t('about.findMe')}
     </h2>
     <ul class="space-y-2 text-sm">
       <li>
         <a href="https://www.linkedin.com/in/gerardo-garc%C3%ADa-de-blas-a185751a/" target="_blank" rel="noopener noreferrer"
-           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+           class="font-mono text-emerald-400 hover:underline">
           LinkedIn ↗
         </a>
       </li>
       <li>
         <a href="https://github.com/gerardo-garcia" target="_blank" rel="noopener noreferrer"
-           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+           class="font-mono text-emerald-400 hover:underline">
           GitHub ↗
         </a>
       </li>
       <li>
         <a href="https://gitlab.com/gerardo-garcia" target="_blank" rel="noopener noreferrer"
-           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+           class="font-mono text-emerald-400 hover:underline">
           GitLab ↗
         </a>
       </li>
       <li>
         <a href="https://www.youtube.com/@jerrygaciait" target="_blank" rel="noopener noreferrer"
-           class="text-indigo-600 dark:text-indigo-400 hover:underline">
+           class="font-mono text-emerald-400 hover:underline">
           YouTube ↗
         </a>
       </li>
