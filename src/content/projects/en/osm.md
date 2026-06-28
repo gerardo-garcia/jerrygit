@@ -1,6 +1,6 @@
 ---
 title: "Open Source MANO (OSM)"
-description: "ETSI's open-source NFV Management and Orchestration platform. I serve as TSC Chair and one of the project leaders. OSM enables operators and enterprises to automate the deployment and lifecycle management of virtualized and cloud-native network functions."
+description: "ETSI's open-source platform for the management and orchestration of infrastructure and applications. I serve as Chair of the project. OSM enables operators and enterprises to automate the deployment and lifecycle management of infrastructure, applications, and virtualized network functions."
 status: "active"
 tags: ["NFV", "Orchestration", "Telco", "Open Source", "ETSI"]
 links:

@@ -1,6 +1,6 @@
 ---
 title: "Open Source MANO (OSM)"
-description: "Plataforma de gestión y orquestación de NFV de código abierto de ETSI. Ejerzo como Presidente del TSC y uno de los líderes del proyecto. OSM permite a operadores y empresas automatizar el despliegue y la gestión del ciclo de vida de funciones de red virtualizadas y nativas de la nube."
+description: "Plataforma de gestión y orquestación de infraestructura y aplicaciones de código abierto de ETSI. Ejerzo como Chair del proyecto. OSM permite a operadores y empresas automatizar el despliegue y la gestión del ciclo de vida de infraestructura, aplicaciones y funciones de red virtualizadas."
 status: "active"
 tags: ["NFV", "Orquestación", "Telco", "Open Source", "ETSI"]
 links:
